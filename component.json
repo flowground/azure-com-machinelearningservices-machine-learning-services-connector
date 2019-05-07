@@ -1,0 +1,356 @@
+{
+    "title": "Azure Machine Learning Workspaces",
+    "description": "These APIs allow end users to operate on Azure Machine Learning Workspace resources.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/machinelearningservices-machineLearningServices/2018-11-19/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists all of the available Azure Machine Learning Workspaces REST API operations.",
+            "description": "Lists all of the available Azure Machine Learning Workspaces REST API operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Usages_List": {
+            "main": "./lib/actions/Usages_List.js",
+            "title": "Gets the current usage information as well as limits for AML resources for given subscription and location.",
+            "description": "Gets the current usage information as well as limits for AML resources for given subscription and location.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Usages_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VirtualMachineSizes_List": {
+            "main": "./lib/actions/VirtualMachineSizes_List.js",
+            "title": "Returns supported VM Sizes in a location",
+            "description": "Returns supported VM Sizes in a location",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VirtualMachineSizes_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workspaces_ListBySubscription": {
+            "main": "./lib/actions/Workspaces_ListBySubscription.js",
+            "title": "Lists all the available machine learning workspaces under the specified subscription.",
+            "description": "Lists all the available machine learning workspaces under the specified subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workspaces_ListBySubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workspaces_ListByResourceGroup": {
+            "main": "./lib/actions/Workspaces_ListByResourceGroup.js",
+            "title": "Lists all the available machine learning workspaces under the specified resource group.",
+            "description": "Lists all the available machine learning workspaces under the specified resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workspaces_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workspaces_Delete": {
+            "main": "./lib/actions/Workspaces_Delete.js",
+            "title": "Deletes a machine learning workspace.",
+            "description": "Deletes a machine learning workspace.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workspaces_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workspaces_Get": {
+            "main": "./lib/actions/Workspaces_Get.js",
+            "title": "Gets the properties of the specified machine learning workspace.",
+            "description": "Gets the properties of the specified machine learning workspace.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workspaces_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workspaces_Update": {
+            "main": "./lib/actions/Workspaces_Update.js",
+            "title": "Updates a machine learning workspace with the specified parameters.",
+            "description": "Updates a machine learning workspace with the specified parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workspaces_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workspaces_CreateOrUpdate": {
+            "main": "./lib/actions/Workspaces_CreateOrUpdate.js",
+            "title": "Creates or updates a workspace with the specified parameters.",
+            "description": "Creates or updates a workspace with the specified parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workspaces_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MachineLearningCompute_ListByWorkspace": {
+            "main": "./lib/actions/MachineLearningCompute_ListByWorkspace.js",
+            "title": "Gets computes in specified workspace.",
+            "description": "Gets computes in specified workspace.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MachineLearningCompute_ListByWorkspace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MachineLearningCompute_Delete": {
+            "main": "./lib/actions/MachineLearningCompute_Delete.js",
+            "title": "Deletes specified Machine Learning compute.",
+            "description": "Deletes specified Machine Learning compute.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MachineLearningCompute_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MachineLearningCompute_Get": {
+            "main": "./lib/actions/MachineLearningCompute_Get.js",
+            "title": "Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.",
+            "description": "Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MachineLearningCompute_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MachineLearningCompute_Update": {
+            "main": "./lib/actions/MachineLearningCompute_Update.js",
+            "title": "Updates properties of a compute. This call will overwrite a compute if it exists. This is a nonrecoverable operation.",
+            "description": "Updates properties of a compute. This call will overwrite a compute if it exists. This is a nonrecoverable operation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MachineLearningCompute_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MachineLearningCompute_CreateOrUpdate": {
+            "main": "./lib/actions/MachineLearningCompute_CreateOrUpdate.js",
+            "title": "Creates or updates compute. This call will overwrite a compute if it exists. This is a nonrecoverable operation. If your intent is to create a new compute, do a GET first to verify that it does not exist yet.",
+            "description": "Creates or updates compute. This call will overwrite a compute if it exists. This is a nonrecoverable operation. If your intent is to create a new compute, do a GET first to verify that it does not exist yet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MachineLearningCompute_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MachineLearningCompute_ListKeys": {
+            "main": "./lib/actions/MachineLearningCompute_ListKeys.js",
+            "title": "Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).",
+            "description": "Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MachineLearningCompute_ListKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MachineLearningCompute_ListNodes": {
+            "main": "./lib/actions/MachineLearningCompute_ListNodes.js",
+            "title": "Get the details (e.g IP address, port etc) of all the compute nodes in the compute.",
+            "description": "Get the details (e.g IP address, port etc) of all the compute nodes in the compute.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MachineLearningCompute_ListNodes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workspaces_ListKeys": {
+            "main": "./lib/actions/Workspaces_ListKeys.js",
+            "title": "Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry",
+            "description": "Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workspaces_ListKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workspaces_ResyncKeys": {
+            "main": "./lib/actions/Workspaces_ResyncKeys.js",
+            "title": "Resync all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry",
+            "description": "Resync all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workspaces_ResyncKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

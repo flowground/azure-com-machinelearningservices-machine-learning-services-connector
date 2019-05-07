@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "workspaceName": {
+            "required": true,
+            "type": "string"
+        },
+        "computeName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "AmlCompute update parameters.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the amlCompute.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "scaleSettings": {
+                            "description": "Desired scale settings for the amlCompute.",
+                            "title": "Scale settings.",
+                            "properties": {
+                                "maxNodeCount": {
+                                    "description": "Max number of nodes to use",
+                                    "type": "integer"
+                                },
+                                "minNodeCount": {
+                                    "default": 0,
+                                    "description": "Min number of nodes to use",
+                                    "type": "integer"
+                                },
+                                "nodeIdleTimeBeforeScaleDown": {
+                                    "description": "Node Idle Time before scaling down amlCompute",
+                                    "format": "duration",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "maxNodeCount"
+                            ],
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

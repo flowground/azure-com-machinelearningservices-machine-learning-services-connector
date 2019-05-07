@@ -1,0 +1,154 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "workspaceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Azure Resource Manager resource envelope.",
+                    "properties": {
+                        "id": {
+                            "description": "Specifies the resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "identity": {
+                            "description": "The identity of the resource.",
+                            "readOnly": true,
+                            "properties": {
+                                "principalId": {
+                                    "description": "The principal ID of resource identity.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "tenantId": {
+                                    "description": "The tenant ID of resource.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "The identity type.",
+                                    "enum": [
+                                        "SystemAssigned"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "ResourceIdentityType"
+                                    }
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "location": {
+                            "description": "Specifies the location of the resource.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Specifies the name of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Contains resource tags defined as key/value pairs.",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Specifies the type of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "An object that represents a machine learning workspace.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the machine learning workspace.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "applicationInsights": {
+                            "description": "ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created",
+                            "type": "string"
+                        },
+                        "containerRegistry": {
+                            "description": "ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created",
+                            "type": "string"
+                        },
+                        "creationTime": {
+                            "description": "The creation time of the machine learning workspace in ISO8601 format.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "description": {
+                            "description": "The description of this workspace.",
+                            "type": "string"
+                        },
+                        "discoveryUrl": {
+                            "description": "Url for the discovery service to identify regional endpoints for machine learning experimentation services",
+                            "type": "string"
+                        },
+                        "friendlyName": {
+                            "description": "The friendly name for this workspace. This name in mutable",
+                            "type": "string"
+                        },
+                        "keyVault": {
+                            "description": "ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created",
+                            "type": "string"
+                        },
+                        "provisioningState": {
+                            "description": "The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.",
+                            "enum": [
+                                "Unknown",
+                                "Updating",
+                                "Creating",
+                                "Deleting",
+                                "Succeeded",
+                                "Failed",
+                                "Canceled"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ProvisioningState"
+                            }
+                        },
+                        "storageAccount": {
+                            "description": "ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created",
+                            "type": "string"
+                        },
+                        "workspaceId": {
+                            "description": "The immutable id associated with this workspace.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

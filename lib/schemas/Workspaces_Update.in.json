@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "workspaceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters for updating a machine learning workspace.",
+            "properties": {
+                "properties": {
+                    "description": "The properties that the machine learning workspace will be updated with.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "description": {
+                            "description": "The description of this workspace.",
+                            "type": "string"
+                        },
+                        "friendlyName": {
+                            "description": "The friendly name for this workspace.",
+                            "type": "string"
+                        }
+                    }
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The resource tags for the machine learning workspace.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
